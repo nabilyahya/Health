@@ -8,12 +8,13 @@ import SginUp from "./Pages/SginUp";
 import OurServices from "./Pages/OurServices";
 import { AboutUs } from "./Pages/AboutUs";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import styled from "styled-components";
 
 function App() {
   return (
     <EthProvider>
-      <div id="App">
+      <div className="wrap">
         <Navbar />
         <Router>
           <Routes>
@@ -24,6 +25,7 @@ function App() {
             <Route path="/sginup" element={<SginUp />} />
           </Routes>
         </Router>
+        <Footer />
       </div>
     </EthProvider>
   );

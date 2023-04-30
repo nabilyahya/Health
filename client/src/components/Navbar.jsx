@@ -1,4 +1,5 @@
 import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function Navbar() {
   return (
@@ -6,7 +7,9 @@ function Navbar() {
       <div className="container">
         <div className="logo">
           <a href="index.html">
-            <img src="images/logo.png" alt="" />
+            {/**
+          <img src="images/logo.png" alt="" />
+        */}
           </a>
         </div>
         <nav className="webimenu">
