@@ -15,6 +15,7 @@ module.exports = {
     client: {
       overlay: false,
     },
+    historyApiFallback: true, // Add this line here
   },
   module: {
     rules: [
