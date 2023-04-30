@@ -10,13 +10,14 @@ import { AboutUs } from "./Pages/AboutUs";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import styled from "styled-components";
+const PUBLIC_URL = process.env.REACT_APP_PUBLIC_URL;
 
 function App() {
   return (
     <EthProvider>
       <div className="wrap">
-        <Navbar />
-        <Router>
+        <Router basename={PUBLIC_URL}>
+          <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/ourservices" element={<OurServices />} />

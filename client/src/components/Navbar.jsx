@@ -1,16 +1,19 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Link } from "react-router-dom";
 
 function Navbar() {
+  const publicUrl = process.env.REACT_APP_PUBLIC_URL;
+
   return (
     <header className="navbar-fixed-top">
       <div className="container">
         <div className="logo">
-          <a href="index.html">
+          <Link to="/">
             {/**
-          <img src="images/logo.png" alt="" />
+          <img src={`${publicUrl}/images/logo.png`} alt="" />
         */}
-          </a>
+          </Link>
         </div>
         <nav className="webimenu">
           <div className="menu-toggle">
@@ -18,16 +21,13 @@ function Navbar() {
           </div>
           <ul className="ownmenu">
             <li className="active">
-              <a href="index.html">Home</a>
+              <Link to="/">Home</Link>
             </li>
             <li>
-              <a href="02-about-us.html">About us</a>
+              <Link to="/about-us">About us</Link>
             </li>
             <li>
-              <a href="services.html">SERVICES</a>
-            </li>
-            <li>
-              <a href="12-contact.html">Contact</a>
+              <Link to="/ourservices">SERVICES</Link>
             </li>
           </ul>
         </nav>

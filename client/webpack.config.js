@@ -1,6 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const EslintWebpackPlugin = require("eslint-webpack-plugin");
+const webpack = require("webpack");
 
 const extensions = [".js", ".jsx"];
 
@@ -10,12 +11,17 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "build"),
   },
-  resolve: { extensions },
+  resolve: {
+    extensions,
+    fallback: {
+      process: require.resolve("process/browser"), // Add this line
+    },
+  },
   devServer: {
     client: {
       overlay: false,
     },
-    historyApiFallback: true, // Add this line here
+    historyApiFallback: true,
   },
   module: {
     rules: [
@@ -43,6 +49,12 @@ module.exports = {
       template: "./public/index.html",
       favicon: "./public/favicon.ico",
     }),
+    new webpack.DefinePlugin({
+      "process.env.REACT_APP_PUBLIC_URL": JSON.stringify(
+        process.env.REACT_APP_PUBLIC_URL
+      ),
+    }),
   ],
+
   stats: "minimal",
 };
